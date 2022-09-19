@@ -1,0 +1,42 @@
+<app-messages></app-messages>
+<div class="home-container">
+  <h1>Veja o que estão compartilhando</h1>
+
+  <div class="search-container">
+    <form>
+      <div class="search-input">
+        <span ngModel #searchIcon class="material-icons">
+          search
+        </span>
+        <input type="text" placeholder="Qual momento você procura?" (input)="search($event)">
+      </div>
+
+    </form>
+  </div>
+
+
+  <div class="loader" *ngIf="loading else momentContainer"></div>
+  
+  <ng-template #momentContainer>
+    <div *ngIf="moments.length > 0 else noMoments">
+      <div class="moments-container">
+        <div class="moment" *ngFor="let moment of moments">
+          <div class="image-content">
+            <img *ngIf="moment.image" src="{{ apiUrl }}/uploads/{{ moment.image }}" alt="{{ moment.title }}">
+          </div>
+          <h3>{{ moment.title }}</h3>
+          <p>{{ moment.description }}</p>
+          <p>{{ moment.created_at }}</p>
+          <p>Comentários: {{ moment.comments!.length }}</p>
+          <p><a routerLink="/moments/{{moment.id}}" class="details">Detalhes</a></p>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #noMoments>
+      <p>
+        Não há momentos registrados!
+      </p>
+    </ng-template>
+  </ng-template>
+</div>

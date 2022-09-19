@@ -1,0 +1,8 @@
+<h2>Compartilhe o seu <span>Momento</span>!</h2>
+<div *ngIf="load else momentForm" class="loader"></div>
+<ng-template #momentForm>
+  <app-moment-form
+  [btnText]="btnText"
+  (onSubmit)="createHandler($event)"
+></app-moment-form>
+</ng-template>

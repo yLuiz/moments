@@ -1,0 +1,20 @@
+<nav>
+    <a class="brand" routerLink="/">
+      <img src="/assets/moments.png" alt="Moments" />
+      <h2>Moments</h2>
+    </a>
+    <ul class="links">
+      <li>
+        <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Moments</a>
+      </li>
+      <li id="add">
+        <a routerLink="/moments/new" routerLinkActive="active-link">Compartilhar</a>
+      </li>
+      <li>
+        <a routerLink="/about" routerLinkActive="active-link">Sobre</a>
+      </li>
+    </ul>
+    <div *ngIf="rotaAtiva">
+        ROTA ESTÁ ATIVA
+    </div>
+  </nav>
