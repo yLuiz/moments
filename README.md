@@ -1,7 +1,8 @@
 # moments
 
 # Acess
-No deploy yet...
+no deployed yet...
+
 
 # About project
 
